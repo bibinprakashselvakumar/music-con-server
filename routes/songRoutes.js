@@ -24,7 +24,7 @@ const app = express();
 app.use(function (req, res, next) {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://spotify-apple-music-gamma.vercel.app/"
+    "https://spotify-apple-music-gamma.vercel.app"
   );
   res.header(
     "Access-Control-Allow-Headers",

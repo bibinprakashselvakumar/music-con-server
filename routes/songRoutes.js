@@ -2,10 +2,22 @@ const express = require("express");
 const axios = require("axios");
 const router = express.Router();
 require("dotenv").config();
+const cors = require("cors");
+
+const app = express();
 
 // Spotify API credentials
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
+
+// Allow requests from a specific origin
+const allowedOrigin = "https://spotify-apple-music-gamma.vercel.app";
+const corsOptions = {
+  origin: allowedOrigin,
+  methods: ["GET"],
+  allowedHeaders: ["Content-Type"],
+};
+app.use(cors(corsOptions));
 
 // Spotify API authentication options
 const authOptions = {
@@ -18,20 +30,6 @@ const authOptions = {
   },
   data: "grant_type=client_credentials",
 };
-
-const app = express();
-// Set up CORS headers
-app.use(function (req, res, next) {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://spotify-apple-music-gamma.vercel.app"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
 
 router.get("/get-song", async (req, res) => {
   try {

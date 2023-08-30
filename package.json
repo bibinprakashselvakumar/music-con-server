@@ -4,7 +4,7 @@
   "description": "Backend server that gets the input URL and sends back requested music app URL",
   "main": "index.js",
   "engines": {
-    "node": "14.x"
+    "node": "18.x"
   },
   "scripts": {
     "start": "node index.js",

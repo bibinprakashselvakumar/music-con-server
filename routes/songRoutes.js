@@ -2,22 +2,12 @@ const express = require("express");
 const axios = require("axios");
 const router = express.Router();
 require("dotenv").config();
-const cors = require("cors");
 
 const app = express();
 
 // Spotify API credentials
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
-
-// Allow requests from a specific origin
-const allowedOrigin = "https://spotify-apple-music-gamma.vercel.app";
-const corsOptions = {
-  origin: allowedOrigin,
-  methods: ["GET"],
-  allowedHeaders: ["Content-Type"],
-};
-app.use(cors(corsOptions));
 
 // Spotify API authentication options
 const authOptions = {
